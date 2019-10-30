@@ -1,4 +1,4 @@
-This is a side project I setup to experiment with redux, it doesn't entail all of the features for a functional airbnb app also the code is quite scanty and not production ready with lots of bugs and doesnt't follow best practice just wanted to test a thing a two.<br>
+Fullstack airbnb clone<br>
 Here's the link to the api [https://github.com/gbolahanO/larabnb-backend](larabnb-backend)
 
 ## Available Scripts
