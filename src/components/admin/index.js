@@ -70,9 +70,9 @@ class Index extends Component {
           </div>
           <div className="col-lg-12 mt-2">
             <div className="row">
-                {this.props.listings.homeLoading ? <img src={loading} width="100" height={100} alt="loading..." /> : this.props.listings.homeData.reservations.map(listing =>
+                {this.props.listings.homeLoading ? <img src={loading} width="100" height={100} alt="loading..." /> : this.props.listings.homeData.reservations.map((listing, index) =>
                   <CardList
-                    key={listing.listing_id}
+                    key={index}
                     id={listing.listing_id}
                     name={listing.listing_name}
                     price={listing.price}

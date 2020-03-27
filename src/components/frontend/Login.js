@@ -12,7 +12,7 @@ class Signup extends Component {
       password: '',
       grant_type: 'password',
       client_id: '2',
-      client_secret: 'TWPCYMCn4nFpzB5LiRzGesOMKN6t4O4XWgNyq1b0'
+      client_secret: 'AnqPhiOAIM1ZfR3ZjZ4gM0fAouxcWz850Rszr4dk'
     }
   }
 

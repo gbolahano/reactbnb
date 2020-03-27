@@ -163,12 +163,51 @@ export const save_error = () => ({ type: 'SAVE_ERROR' })
 export const createListing = (data) => {
   return dispatch => {
     dispatch(saving())
-    const { access_token } = getToken() || '';
-    const token = config(access_token);
-    axios.post('http://larabnb.test/api/user/listings/store', data, token)
-      .then(reponse => {
+    // const { access_token } = getToken() || '';
+    // const token = config(access_token);
+    // axios.post('http://larabnb.test/api/user/listings/store', data, token)
+    console.log('s',data)
+    axios.post('http://larabnb.test/api/user/listings/store', data)
+      .then(response => {
+        console.log(response);
         dispatch(saved());
       })
-      .catch(err => dispatch(save_error()));
+      .catch(err => {
+        // console.log(err.message);
+        dispatch(save_error())
+      });
+  }
+}
+
+export const updating = () => {
+  return {
+    type: 'UPDATING'
+  }
+}
+
+export const updated = () => {
+  return {
+    type: 'UPDATED'
+  }
+}
+
+export const update_error = () => ({ type: 'UPDATE_ERROR' })
+
+export const updateListing = (listingId, data) => {
+  return dispatch => {
+    dispatch(updating())
+    // const { access_token } = getToken() || '';
+    // const token = config(access_token);
+    // axios.post('http://larabnb.test/api/user/listings/store', data, token)
+    console.log('s',data)
+    axios.post(`http://larabnb.test/api/user/listings/${listingId}/update/1`, data)
+      .then(response => {
+        console.log(response);
+        dispatch(updated());
+      })
+      .catch(err => {
+        // console.log(err.message);
+        dispatch(update_error())
+      });
   }
 }

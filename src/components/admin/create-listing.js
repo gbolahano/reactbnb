@@ -61,7 +61,9 @@ class Index extends Component {
 
             <div className="col-lg-9 mb-5">
               <h2>Create Listing</h2>
-              {this.props.listing.saved ? <div className="alert alert-success m-3">Listing Created</div> : ''}
+              {this.props.listing.saved ?
+                <div className="alert alert-success m-3">Listing Created</div> : ''}
+
               {this.props.listing.error ? <div className="alert alert-danger m-3">An Error ocurred please check form parameters</div> : ''}
               <form onSubmit={this.handleSubmit}>
                 <div className="form-group">
@@ -71,18 +73,18 @@ class Index extends Component {
                   <input onChange={this.handleInput} value={this.state.listing.price} name="price" type="number" className="form-control" placeholder="price" />
                 </div>
                 <div className="form-group">
-                  <textarea onChange={this.handleInput} defaultValue={this.state.listing.name} name="description" id="" cols="30" rows="10" className="form-control" placeholder="Description"></textarea>
+                  <textarea onChange={this.handleInput} value={this.state.listing.description} name="description" cols="30" rows="10" className="form-control" placeholder="Description"></textarea>
                 </div>
                 <div className="form-group">
                   <input name="photos" type="file" className="form-control" />
                 </div>
                 <div className="form-group">
                   <h5>Amenities</h5>
-                  <input type="checkbox" name="Air Conditioner" id="" />Air conditioner
-                  <input type="checkbox" name="Smoke detector" id="" />Smoke detector
+                  <input type="checkbox" name="Air Conditioner" />Air conditioner
+                  <input type="checkbox" name="Smoke detector" />Smoke detector
                 </div>
                 <div className="form-group">
-                  <select onChange={this.handleInput} value={this.state.listing.status} name="status" id="" className="form-control">
+                  <select onChange={this.handleInput} value={this.state.listing.status} name="status" className="form-control">
                     <option value="">Choose Availablity</option>
                     <option value="1">True</option>
                     <option value="0">False</option>
@@ -91,7 +93,7 @@ class Index extends Component {
                 <div className="form-group">
                 <button className="btn btn-success" type="submit">Save Listing {this.props.listing.saving ? <img className="ml-3" src={loading} style={{
                       width: 20, height: 20
-                    }} alt="loading..." />: '' }</button>
+                    }} alt="saving..." />: '' }</button>
                 </div>
               </form>
             </div>

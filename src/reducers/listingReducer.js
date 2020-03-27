@@ -8,11 +8,14 @@ const initialState = {
   loadUserListings: false,
   saving: false,
   saved: false,
+  updating: false,
+  updated: false,
   error: false,
   homeData: { reservations:[], bookings:[] },
   homeLoading: false,
   getListing: false,
-  listingSingle: {}
+  listingSingle: {},
+  updateError: false
 }
 
 function listing(state = initialState, action) {
@@ -33,6 +36,12 @@ function listing(state = initialState, action) {
       return { ...state, saving: false, saved: true }
     case 'SAVE_ERROR':
       return { ...state, error: true }
+    case 'UPDATING':
+      return { ...state, updating: true }
+    case 'UPDATED':
+      return { ...state, updating: false, updated: true }
+    case 'UPDATE_ERROR':
+      return { ...state, updateError: true }
     case 'FETCHING_USER_HOME_DATA':
       return { ...state, homeLoading: true }
     case 'SET_USER_HOME_DATA':

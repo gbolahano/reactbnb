@@ -14,6 +14,20 @@ class Index extends Component {
     this.props.fetchUserListings();
   }
 
+  componentDidUpdate(prevProps, prevState) {
+
+  }
+
+  handleDelete = id => {
+    const { userListings } = this.props.listings;
+    const oldListing = [...userListings];
+    const index = oldListing.findIndex(n => n.id === id);
+    const Listing = [
+      ...oldListing.splice(0, index),
+      ...oldListing.splice(index + 1)
+    ];
+  }
+
   render() {
     return (
       <div>
@@ -67,10 +81,8 @@ class Index extends Component {
                       }}>
                         <button className="btn btn-primary btn-sm">Edit</button>
                       </Link>&nbsp;
-                      <Link to={{
-                        pathname: '/user/listing/details/' + listing.id
-                      }}>
-                        <button className="btn btn-danger btn-sm">Delete</button>
+                      <Link>
+                        <button onClick={() => this.handleDelete(listing.id)} className="btn btn-danger btn-sm">Delete</button>
                       </Link>
                     </CardList>)}
             </div>
@@ -78,10 +90,6 @@ class Index extends Component {
         </div>
 
         </div>
-
-
-
-
       </div>
     )
   }
